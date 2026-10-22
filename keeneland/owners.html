@@ -137,7 +137,61 @@ table.runners { width: 100%; border-collapse: collapse; margin-top: 18px; font-v
 <div id="app" aria-live="polite"><p style="font:16px sans-serif;color:#a9a6a1;padding:2rem">Loading today's data&hellip;</p></div>
 <script>
 function boot() {
-
+try {
+(function () {
+  var num = function (s) { s = s.replace(/−/g, '-').replace(/[$,%\s]/g, ''); var v = parseFloat(s); return isNaN(v) ? null : v; };
+  document.querySelectorAll('table.ft').forEach(function (tb) {
+    var ths = tb.querySelectorAll('thead th'), body = tb.tBodies[0];
+    ths.forEach(function (th, i) {
+      th.classList.add('sortable'); th.tabIndex = 0; th.setAttribute('role', 'button'); th.title = 'Click to sort';
+      var go = function () {
+        var dir = th.dataset.dir === 'desc' ? 'asc' : th.dataset.dir === 'asc' ? 'desc' : (i === 0 ? 'asc' : 'desc');
+        ths.forEach(function (o) { o.removeAttribute('data-dir'); o.removeAttribute('aria-sort'); });
+        th.dataset.dir = dir; th.setAttribute('aria-sort', dir === 'asc' ? 'ascending' : 'descending');
+        var keys = Array.prototype.map.call(body.rows, function (r, idx) {
+          var t = r.cells[i].textContent.trim();
+          return { r: r, idx: idx, t: t, n: i === 0 ? null : num(t) };
+        });
+        keys.sort(function (a, b) {
+          var c;
+          if (i === 0) { c = a.t.localeCompare(b.t, undefined, { sensitivity: 'base' }); }
+          else if (a.n === null && b.n === null) { c = 0; }
+          else if (a.n === null) { c = -1; }
+          else if (b.n === null) { c = 1; }
+          else { c = a.n - b.n; }
+          if (c === 0) return a.idx - b.idx;
+          return dir === 'asc' ? c : -c;
+        });
+        keys.forEach(function (k) { body.appendChild(k.r); });
+      };
+      th.addEventListener('click', go);
+      th.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+    });
+  });
+})();
+} catch (e) { console.error(e); }
+try {
+(function () {
+  var box = document.getElementById('finder-input');
+  if (!box) return;
+  var blocks = document.querySelectorAll('.full');
+  blocks.forEach(function (b) {
+    var p = document.createElement('p'); p.className = 'nomatch'; p.hidden = true; p.textContent = 'No match in this table.'; b.appendChild(p);
+  });
+  var run = function () {
+    var q = box.value.trim().toLowerCase();
+    blocks.forEach(function (b) {
+      var shown = 0;
+      Array.prototype.forEach.call(b.querySelectorAll('tbody tr'), function (r) {
+        var ok = !q || r.cells[0].textContent.toLowerCase().indexOf(q) !== -1 || (r.dataset.s || '').indexOf(q) !== -1;
+        r.hidden = !ok; if (ok) shown++;
+      });
+      b.querySelector('.nomatch').hidden = !(q && shown === 0);
+    });
+  };
+  box.addEventListener('input', run);
+})();
+} catch (e) { console.error(e); }
 }
 (function () {
   // 1) GitHub's API: fresh within seconds of a push (cached 60 s); 60 requests/hour per visitor address without a key
