@@ -173,16 +173,19 @@ function boot() {
 
 }
 (function () {
-  var url = "https://raw.githubusercontent.com/horserankerco/horseranker-site-data/main/data/indiana/front-runners.fragment.html?t=" + Math.floor(Date.now() / 60000);   // a new address every minute: always the latest push, never a stale copy
-  fetch(url, { cache: "no-store" }).then(function (r) {
-    if (!r.ok) throw new Error("HTTP " + r.status);
-    return r.text();
-  }).then(function (h) {
-    document.getElementById("app").innerHTML = h;
-    try { boot(); } catch (e) { console.error(e); }
-  }).catch(function (e) {
-    document.getElementById("app").innerHTML = '<p style="font:16px sans-serif;color:#f2998f;padding:2rem">The data could not be loaded just now (' + e.message + '). Please refresh in a minute.</p>';
-  });
+  // 1) GitHub's API: fresh within seconds of a push (cached 60 s); 60 requests/hour per visitor address without a key
+  // 2) fallback: the raw file link (cached up to 5 minutes) if the API refuses (rate limit) or fails
+  var api = "https://api.github.com/repos/horserankerco/horseranker-site-data/contents/data/indiana/front-runners.fragment.html?ref=main";
+  var raw = "https://raw.githubusercontent.com/horserankerco/horseranker-site-data/main/data/indiana/front-runners.fragment.html?t=" + Math.floor(Date.now() / 60000);
+  function text(r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.text(); }
+  fetch(api, { headers: { "Accept": "application/vnd.github.raw+json" } }).then(text)
+    .catch(function () { return fetch(raw, { cache: "no-store" }).then(text); })
+    .then(function (h) {
+      document.getElementById("app").innerHTML = h;
+      try { boot(); } catch (e) { console.error(e); }
+    }).catch(function (e) {
+      document.getElementById("app").innerHTML = '<p style="font:16px sans-serif;color:#f2998f;padding:2rem">The data could not be loaded just now (' + e.message + '). Please refresh in a minute.</p>';
+    });
 })();
 </script>
 </body>
