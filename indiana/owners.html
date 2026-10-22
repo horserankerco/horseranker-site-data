@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Indiana Grand owner records, April 15, 2025 to October 7, 2026: dirt and turf sprints and routes, first-time starters, post-time favorites and horses at 8-1 or higher.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Indiana Grand Owners">
+<meta property="og:description" content="Indiana Grand owner records, April 15, 2025 to October 7, 2026: dirt and turf sprints and routes, first-time starters, post-time favorites and horses at 8-1 or higher.">
+<title>Indiana Grand Owners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+html { background: #0e0e10; } body { margin: 0; } img { max-width: 100%; }
+/* Layout: one centered column in the banner's black and red. Banner, headline, runners table, three reads, four trainer cards, Henry's dojo block, sources. */
+:root {
+  --ink: #0e0e10;
+  --panel: #17171a;
+  --panel-2: #1e1e22;
+  --line: #2e2e34;
+  --text: #f2f0ed;
+  --mute: #a9a6a1;
+  --red: #dd3a3f;
+  --good: #7fd3a6;
+  --bad: #f2998f;
+  --display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--ink); color: var(--text); font-family: var(--body); font-size: 17px; line-height: 1.55; }
+.wrap { max-width: 1040px; margin-inline: auto; padding-inline: 18px; padding-block: 20px 56px; display: flex; flex-direction: column; gap: 44px; }
+.banner { overflow: hidden; background: #131315; }
+.banner img { display: block; width: 100%; height: auto; }
+.eyebrow { font-family: var(--display); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--red); font-size: .95rem; margin: 0 0 8px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: .02em; line-height: 1.04; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.3rem, 7vw, 4rem); }
+h2 { font-size: clamp(1.7rem, 4.5vw, 2.3rem); }
+h3 { font-size: 1.35rem; letter-spacing: .04em; }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; align-items: start; margin-top: 14px; }
+.hero .lede { margin: 0; }
+.hero .henry { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+.lede { max-width: 62ch; color: var(--text); font-size: 1.12rem; margin: 14px 0 0; }
+.sub { color: var(--mute); max-width: 64ch; margin: 8px 0 0; font-size: 1rem; }
+.scroll { overflow-x: auto; }
+
+/* runners */
+table.runners { width: 100%; border-collapse: collapse; margin-top: 18px; font-variant-numeric: tabular-nums; }
+.runners th { font-family: var(--display); font-weight: 600; text-transform: uppercase; letter-spacing: .1em; font-size: .85rem; color: var(--mute); text-align: right; padding: 8px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.runners th.l, .runners td.l { text-align: left; }
+.runners td { padding: 12px 10px; border-bottom: 1px solid var(--line); text-align: right; vertical-align: baseline; }
+.runners tr.race td { padding: 22px 10px 8px; border-bottom: 2px solid var(--red); text-align: left; font-family: var(--display); font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--text); font-size: 1.05rem; }
+.runners tr.race span { color: var(--mute); font-weight: 500; }
+.runners .num { display: inline-block; min-width: 2.2ch; color: var(--red); font-family: var(--display); font-weight: 700; font-size: 1.15rem; }
+.runners .horse { font-weight: 600; }
+.runners .who { color: var(--text); }
+.pill { display: inline-block; padding: 1px 9px; font-weight: 600; font-size: .98rem; border: 1px solid currentColor; }
+.pill.pos { color: var(--good); }
+.pill.neg { color: var(--bad); }
+.pill.na { color: var(--mute); border-color: var(--line); font-weight: 500; }
+.dim { color: var(--mute); }
+.fine { color: var(--mute); font-size: .92rem; margin: 12px 0 0; max-width: 78ch; }
+
+/* reads */
+.reads { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 26px 34px; margin-top: 20px; }
+.reads div { min-width: 0; border-top: 2px solid var(--red); padding-top: 12px; }
+.reads p { margin: 8px 0 0; }
+
+/* trainer cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 18px; margin-top: 20px; }
+.card { background: var(--panel); border: 1px solid var(--line); padding: 16px 16px 14px; min-width: 0; }
+.card .today { color: var(--mute); font-size: .95rem; margin: 2px 0 10px; }
+.card .today b { color: var(--text); font-weight: 600; }
+.card table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: .98rem; }
+.card th { text-align: right; font-family: var(--display); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; font-size: .8rem; color: var(--mute); padding: 4px 0 6px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.card th:first-child, .card td:first-child { text-align: left; padding-left: 0; }
+.card td { text-align: right; padding: 7px 0 7px 8px; border-bottom: 1px solid var(--line); }
+.card tr:last-child td { border-bottom: 0; }
+.pos-t { color: var(--good); }
+.neg-t { color: var(--bad); }
+
+/* full tables */
+.fulls { display: flex; flex-direction: column; gap: 36px; margin-top: 20px; }
+.full { min-width: 0; }
+.full h3 { border-top: 2px solid var(--red); padding-top: 10px; margin-bottom: 8px; }
+.ft { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: .96rem; }
+.ft th { text-align: right; font-family: var(--display); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; font-size: .8rem; color: var(--mute); padding: 6px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; background: var(--ink); }
+.ft td { text-align: right; padding: 7px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.ft th.l, .ft td.l { text-align: left; }
+.ft td.nm { font-weight: 600; position: sticky; left: 0; background: var(--ink); }
+.ft th.l { position: sticky; left: 0; }
+/* dojo */
+.sources { color: var(--mute); font-size: .95rem; border-top: 1px solid var(--line); padding-top: 18px; max-width: 80ch; }
+.sources p { margin: 0 0 8px; }
+
+/* runners table becomes stacked blocks on phones */
+@media (max-width: 680px) {
+  body { font-size: 17px; }
+  .runners thead { display: none; }
+  .runners, .runners tbody { display: block; }
+  .runners tr.race { display: block; }
+  .runners tr.race td { display: block; }
+  .runners tr.run { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px 12px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .runners tr.run td { display: block; padding: 0; border: 0; text-align: left; }
+  .runners tr.run td::before { content: attr(data-label); display: block; font-family: var(--display); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; font-size: .78rem; color: var(--mute); }
+  .runners tr.run td.horse { grid-column: 1 / -1; font-size: 1.15rem; }
+  .runners tr.run td.horse::before, .runners tr.run td.who::before { display: none; }
+  .runners tr.run td.who { grid-column: 1 / -1; color: var(--mute); }
+  .runners tr.run td.rec { grid-column: 1 / 3; }
+}
+.tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: -22px; }
+.tabs a { font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: 1.1rem; color: var(--text); text-decoration: none; padding: 11px 18px; border: 1px solid var(--line); background: var(--panel); }
+.tabs a[aria-current="page"] { background: var(--red); border-color: var(--red); color: #fff; }
+.tabs a:not([aria-current]):hover { border-color: var(--red); }
+.topbar { display: flex; flex-direction: column; gap: 16px; margin-top: -22px; }
+.topbar .tabs { margin-top: 0; }
+.intro { margin: 0; font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: .02em; line-height: 1.08; font-size: clamp(1.5rem, 4.6vw, 2.5rem); text-wrap: balance; }
+.intro span { color: #2fa368; }
+.intro span.r { color: var(--red); }
+/* sortable columns */
+.ft th.sortable { cursor: pointer; user-select: none; }
+.ft th.sortable:hover { color: var(--text); }
+.ft th[data-dir]{ color: var(--text); }
+.ft th[data-dir="desc"]::after { content: " BC"; color: var(--red); font-size: .75em; }
+.ft th[data-dir="asc"]::after { content: " B2"; color: var(--red); font-size: .75em; }
+/* finder */
+[hidden] { display: none !important; }
+.finder { position: sticky; top: 0; z-index: 5; background: var(--ink); padding-block: 10px; margin-block: -10px; border-bottom: 1px solid var(--line); }
+.finder label { display: block; font-family: var(--display); font-weight: 600; text-transform: uppercase; letter-spacing: .1em; font-size: .85rem; color: var(--mute); margin-bottom: 6px; }
+.finder input { width: 100%; box-sizing: border-box; font: inherit; font-size: 1rem; color: var(--text); background: var(--panel); border: 1px solid var(--line); padding: 11px 14px; min-height: 44px; }
+.finder input:focus { outline: 2px solid var(--red); outline-offset: 0; }
+.nomatch { color: var(--mute); margin: 8px 0 0; }
+</style>
+</head>
+<body>
+<div id="app" aria-live="polite"><p style="font:16px sans-serif;color:#a9a6a1;padding:2rem">Loading today's data&hellip;</p></div>
+<script>
+function boot() {
+
+}
+(function () {
+  // 1) GitHub's API: fresh within seconds of a push (cached 60 s); 60 requests/hour per visitor address without a key
+  // 2) fallback: the raw file link (cached up to 5 minutes) if the API refuses (rate limit) or fails
+  var api = "https://api.github.com/repos/horserankerco/horseranker-site-data/contents/data/indiana/owners.fragment.html?ref=main";
+  var raw = "https://raw.githubusercontent.com/horserankerco/horseranker-site-data/main/data/indiana/owners.fragment.html?t=" + Math.floor(Date.now() / 60000);
+  function text(r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.text(); }
+  fetch(api, { headers: { "Accept": "application/vnd.github.raw+json" } }).then(text)
+    .catch(function () { return fetch(raw, { cache: "no-store" }).then(text); })
+    .then(function (h) {
+      document.getElementById("app").innerHTML = h;
+      try { boot(); } catch (e) { console.error(e); }
+    }).catch(function (e) {
+      document.getElementById("app").innerHTML = '<p style="font:16px sans-serif;color:#f2998f;padding:2rem">The data could not be loaded just now (' + e.message + '). Please refresh in a minute.</p>';
+    });
+})();
+</script>
+</body>
+</html>
