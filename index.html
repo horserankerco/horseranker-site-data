@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HorseRanker Race Pages</title>
+<style>
+:root { --bg:#f3f4f2; --panel:#ffffff; --ink:#161b18; --mute:#59635d; --line:#d6dbd7; --accent:#b3122b; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#0f1311; --panel:#191f1b; --ink:#eaefeb; --mute:#98a39c; --line:#2a332d; --accent:#ee4057; color-scheme:dark; } }
+:root[data-theme="dark"] { --bg:#0f1311; --panel:#191f1b; --ink:#eaefeb; --mute:#98a39c; --line:#2a332d; --accent:#ee4057; color-scheme:dark; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.55 "Segoe UI", Arial, sans-serif; padding-inline:16px; padding-block:28px 56px; }
+.wrap { max-width:720px; margin-inline:auto; }
+h1 { font-size:clamp(1.8rem,6vw,2.6rem); line-height:1.1; margin:0 0 6px; text-wrap:balance; }
+p.sub { color:var(--mute); margin:0 0 24px; }
+h2 { font-size:1.05rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin:26px 0 8px; }
+ul { list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+a { display:block; background:var(--panel); border:1px solid var(--line); padding:12px 14px; color:var(--ink); text-decoration:none; min-width:0; overflow-wrap:anywhere; }
+a:hover, a:focus-visible { border-color:var(--accent); outline:none; }
+a small { display:block; color:var(--mute); font-size:.88rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>HorseRanker Race Pages</h1>
+<p class="sub">Pick a track and a page. The pages refresh from the data every race day.</p>
+
+<h2>Keeneland</h2>
+<ul>
+<li><a href="keeneland/index.html">First-time starters<small>Debut horses on the card</small></a></li>
+<li><a href="keeneland/front-runners.html">Front-runners<small>Who is likely to show the early speed</small></a></li>
+<li><a href="keeneland/owners.html">Owners</a></li>
+<li><a href="keeneland/all-starters.html">All starters</a></li>
+<li><a href="keeneland-exotics/index.html">Exotics<small>Trainer, jockey and owner records and payoffs</small></a></li>
+</ul>
+
+<h2>Indiana Grand</h2>
+<ul>
+<li><a href="indiana/index.html">First-time starters</a></li>
+<li><a href="indiana/front-runners.html">Front-runners</a></li>
+<li><a href="indiana/owners.html">Owners</a></li>
+<li><a href="indiana/all-starters.html">All starters</a></li>
+<li><a href="indiana-exotics/index.html">Exotics</a></li>
+</ul>
+
+<h2>Century Downs and Century Mile</h2>
+<ul>
+<li><a href="https://century-alberta-horseranker.netlify.app">Century Alberta search site<small>Every trainer, jockey, owner and horse at both tracks</small></a></li>
+</ul>
+</div>
+</body>
+</html>
